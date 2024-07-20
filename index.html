@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fictional Gaming Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cookie-banner button {
+            background-color: #f39c12;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Fictional Gaming Portal</h1>
+    <p>Your ultimate destination for the latest gaming news, reviews, and live streams.</p>
+</div>
+
+<div id="cookie-banner" class="cookie-banner">
+    <span>We use cookies to enhance your experience on our site. By using our site, you consent to cookies.</span>
+    <button onclick="acceptCookies()">Accept</button>
+</div>
+
+<script>
+    function acceptCookies() {
+        document.getElementById('cookie-banner').style.display = 'none';
+        // Set a cookie to remember the user's consent
+        document.cookie = "cookiesAccepted=true; max-age=31536000; path=/";
+    }
+
+    // Check if the user has already accepted cookies
+    function checkCookieConsent() {
+        if (document.cookie.split(';').some((item) => item.trim().startsWith('cookiesAccepted='))) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    }
+
+    window.onload = checkCookieConsent;
+</script>
+
+</body>
+</html>
